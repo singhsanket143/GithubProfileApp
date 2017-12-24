@@ -9,10 +9,12 @@ import {GithubServices} from "../services/github.services";
 })
 export class ProfileComponent implements OnInit {
 
+  user: any[];
   constructor(private _githubService: GithubServices) {
     this._githubService.getUser().subscribe(
       (user) => {
         console.log(user);
+        this.user = user;
       }
     );
   }
